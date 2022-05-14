@@ -28,7 +28,7 @@
     loop_var: valet_sh_service_alias_mapping_item
 
 - name: "internal-actions » sub-handle-state | enable {{ valet_current_service_item.key }} service"
-  systemd:
+  service:
     name: "{{ valet_current_service_item.key }}"
     enabled: yes
     state: restarted
@@ -36,7 +36,7 @@
   when: valet_service_name_alias|length == 0 and valet_current_service_item.value|bool
 
 - name: "internal-actions » sub-handle-state | enable service '{{ valet_current_service_item.key }}' with alias '{{ valet_service_name_alias }}'"
-  systemd:
+  service:
     name: "{{ valet_service_name_alias }}"
     enabled: yes
     state: restarted
@@ -44,7 +44,7 @@
   when: valet_service_name_alias|length > 0 and valet_current_service_item.value|bool
 
 - name: "internal-actions » sub-handle-state | disable {{ valet_current_service_item.key }} service"
-  systemd:
+  service:
     name: "{{ valet_current_service_item.key }}"
     enabled: no
     state: stopped
@@ -52,7 +52,7 @@
   when: valet_service_name_alias|length == 0 and not valet_current_service_item.value|bool
 
 - name: "internal-actions » sub-handle-state | disable service '{{ valet_current_service_item.key }}' with alias '{{ valet_service_name_alias }}'"
-  systemd:
+  service:
     name: "{{ valet_service_name_alias }}"
     enabled: no
     state: stopped

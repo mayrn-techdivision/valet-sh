@@ -22,7 +22,7 @@
   become: true
 
 - name: "ensure nginx is enabled"
-  systemd:
+  service:
     name: nginx
     enabled: yes
   become: true
@@ -40,7 +40,7 @@
     owner: root
     group: root
     mode: '0644'
-  notify: systemd | nginx | reloaded
+  notify: service | nginx | reloaded
   become: true
 
 - name: Create nginx conf.d dir
@@ -94,5 +94,5 @@
     owner: root
     group: root
     mode: '0644'
-  notify: systemd | nginx | reloaded
+  notify: service | nginx | reloaded
   become: true

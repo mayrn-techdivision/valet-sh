@@ -17,7 +17,7 @@
 
 - block:
     - name: "workflows » magento2 » services » elasticsearch | ensure elasticsearch{{ valet_sh_project_vars.services.elasticsearch.version }} is started"
-      systemd:
+      service:
         name: "elasticsearch{{ valet_sh_project_vars.services.elasticsearch.version }}"
         state: started
       become: true
@@ -34,7 +34,7 @@
 
 - block:
     - name: "workflows » magento2 » services » elasticsearch | ensure opensearch{{ valet_sh_project_vars.services.opensearch.version }} is started"
-      systemd:
+      service:
         name: "opensearch{{ valet_sh_project_vars.services.opensearch.version }}"
         state: started
       become: true

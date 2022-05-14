@@ -15,22 +15,22 @@
 ##
 ---
 
-- name: systemd | mailhog | started
-  systemd:
+- name: service | mailhog | started
+  service:
     daemon_reload: yes
     name: mailhog
     state: started
   become: true
 
-- name: systemd | mailhog | stopped
-  systemd:
+- name: service | mailhog | stopped
+  service:
     daemon_reload: yes
     name: mailhog
     state: stopped
   become: true
 
-- name: systemd | mailhog | restarted
-  systemd:
+- name: service | mailhog | restarted
+  service:
     daemon_reload: yes
     name: mailhog
     state: restarted

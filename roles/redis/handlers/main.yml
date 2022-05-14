@@ -15,20 +15,20 @@
 ##
 ---
 
-- name: systemd | redis-server | started
-  systemd:
+- name: service | redis-server | started
+  service:
     name: redis-server
     state: started
   become: true
 
-- name: systemd | redis-server | stopped
-  systemd:
+- name: service | redis-server | stopped
+  service:
     name: redis-server
     state: stopped
   become: true
 
-- name: systemd | redis-server | restarted
-  systemd:
+- name: service | redis-server | restarted
+  service:
     name: redis-server
     state: restarted
   become: true

@@ -70,14 +70,14 @@
       with_dict: "{{ valet_sh_service_alias_mapping }}"
 
     - name: "actions » restart | restart {{ valet_service_name }} service"
-      systemd:
+      service:
         name: "{{ valet_service_name }}"
         state: restarted
       become: true
       when: valet_service_name_alias|length == 0
 
     - name: "actions » restart | restart {{ valet_service_name }} service"
-      systemd:
+      service:
         name: "{{ valet_service_name_alias }}"
         state: restarted
       become: true

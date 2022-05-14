@@ -37,14 +37,14 @@
   with_dict: "{{ valet_sh_service_alias_mapping }}"
 
 - name: "actions » stop | stop {{ valet_service_name }} service"
-  systemd:
+  service:
     name: "{{ valet_service_name }}"
     state: stopped
   become: true
   when: valet_service_name_alias|length == 0
 
 - name: "actions » stop | stop {{ valet_service_name }} service"
-  systemd:
+  service:
     name: "{{ valet_service_name_alias }}"
     state: stopped
   become: true

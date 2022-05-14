@@ -47,7 +47,7 @@
         src: "{{ item }}"
         dest: "/etc/php/{{ php_version_number }}/fpm/conf.d/20-xdebug.ini"
         state: link
-      notify: "systemd | php{{ php_version_number }}-fpm | restarted"
+      notify: "service | php{{ php_version_number }}-fpm | restarted"
       become: true
       with_first_found:
         - "/etc/php/{{ php_version_number }}/mods-available/xdebug3.ini"
@@ -72,7 +72,7 @@
         src: "{{ item }}"
         dest: "/etc/php/{{ php_version_number }}/fpm/conf.d/20-xdebug.ini"
         state: link
-      notify: "systemd | php{{ php_version_number }}-fpm | restarted"
+      notify: "service | php{{ php_version_number }}-fpm | restarted"
       become: true
       with_first_found:
         - "/etc/php/{{ php_version_number }}/mods-available/xdebug2-compiled.ini"

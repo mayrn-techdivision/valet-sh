@@ -47,7 +47,7 @@
   apt:
     name: "{{ php_specific_modules }}"
     state: present
-  notify: "systemd | {{ php_version_string }}-fpm | restarted"
+  notify: "service | {{ php_version_string }}-fpm | restarted"
   become: true
 
 - name: "include xdebug compilation tasks"
@@ -79,7 +79,7 @@
     path: "/etc/php/{{ php_version }}/fpm/conf.d/20-xdebug.ini"
     state: absent
   when: php_xdebug_fpm_config_obj.stat is defined and php_xdebug_fpm_config_obj.stat.islnk is defined
-  notify: "systemd | {{ php_version_string }}-fpm | restarted"
+  notify: "service | {{ php_version_string }}-fpm | restarted"
   become: true
 
 - name: get stat for error.log file
@@ -118,7 +118,7 @@
     mode: '0644'
   with_first_found:
   - "ubuntu/99-fpm.conf.j2"
-  notify: "systemd | {{ php_version_string }}-fpm | restarted"
+  notify: "service | {{ php_version_string }}-fpm | restarted"
   loop_control:
     loop_var: inside_item
   become: true
@@ -131,7 +131,7 @@
   with_items: "{{ php_fpm_pool_configuration }}"
   loop_control:
     loop_var: inside_item
-  notify: "systemd | {{ php_version_string }}-fpm | restarted"
+  notify: "service | {{ php_version_string }}-fpm | restarted"
   become: true
 
 - name: ensure xdebug2 config is deployed

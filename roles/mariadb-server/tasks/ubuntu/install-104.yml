@@ -67,7 +67,7 @@
     group: "{{ mariadb_server.default_group }}"
     mode: '0644'
   become: true
-  notify: "systemd | {{ current_mariadb_key }} | restarted"
+  notify: "service | {{ current_mariadb_key }} | restarted"
 
 - name: "provide mysql.cnf configuration file"
   template:
@@ -95,17 +95,17 @@
     group: "{{ mariadb_server.default_group }}"
     mode: '0644'
   become: true
-  notify: "systemd | {{ current_mariadb_key }} | restarted"
+  notify: "service | {{ current_mariadb_key }} | restarted"
 
-- name: "provide {{ current_mariadb_key }} systemd unit file"
+- name: "provide {{ current_mariadb_key }} service unit file"
   template:
-    src: "ubuntu/systemd/{{ current_mariadb_key }}.service.j2"
-    dest: "/etc/systemd/system/{{ current_mariadb_key }}.service"
+    src: "ubuntu/service/{{ current_mariadb_key }}.service.j2"
+    dest: "/etc/service/system/{{ current_mariadb_key }}.service"
     owner: root
     group: root
     mode: '0644'
   become: true
-  notify: "systemd | {{ current_mariadb_key }} | restarted"
+  notify: "service | {{ current_mariadb_key }} | restarted"
 
 - name: "provide {{ current_mariadb_key }} mysql client"
   template:
@@ -161,7 +161,7 @@
 
 - block:
     - name: "ensure '{{ current_mariadb_key }}' is stopped"
-      systemd:
+      service:
         name: "{{ current_mariadb_key }}"
         state: stopped
       become: true
@@ -200,7 +200,7 @@
         state: absent
 
     - name: "ensure {{ current_mariadb_key }} enabled"
-      systemd:
+      service:
         name: "{{ current_mariadb_key }}"
         enabled: yes
         daemon_reload: yes
@@ -234,7 +234,7 @@
       become: true
 
     - name: ensure mariadb 10.4 is restarted
-      systemd:
+      service:
         name: "{{ current_mariadb_key }}"
         daemon_reload: true
         state: restarted

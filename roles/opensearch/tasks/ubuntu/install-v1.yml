@@ -63,14 +63,14 @@
     src: "config/{{ current_opensearch_key }}.yml.j2"
     dest: "{{ current_opensearch_base_path }}/config/opensearch.yml"
     mode: '0644'
-  notify: "systemd | opensearch1 | restarted"
+  notify: "service | opensearch1 | restarted"
 
-- name: "provide {{ current_opensearch_key }} systemd unit file"
+- name: "provide {{ current_opensearch_key }} service unit file"
   template:
-    src: "systemd/{{ current_opensearch_key }}.service.j2"
-    dest: "/etc/systemd/system/{{ current_opensearch_key }}.service"
+    src: "service/{{ current_opensearch_key }}.service.j2"
+    dest: "/etc/service/system/{{ current_opensearch_key }}.service"
     owner: root
     group: root
     mode: '0644'
   become: true
-  notify: "systemd | opensearch1 | restarted"
+  notify: "service | opensearch1 | restarted"

@@ -15,48 +15,48 @@
 ##
 ---
 
-- name: systemd | daemon-reload
-  systemd:
+- name: service | daemon-reload
+  service:
     daemon_reload: true
   become: true
 
-- name: systemd | mysql57 | started
-  systemd:
+- name: service | mysql57 | started
+  service:
     name: mysql57
     daemon_reload: true
     state: started
   become: true
 
-- name: systemd | mysql57 | stopped
-  systemd:
+- name: service | mysql57 | stopped
+  service:
     name: mysql57
     daemon_reload: true
     state: stopped
   become: true
 
-- name: systemd | mysql57 | restarted
-  systemd:
+- name: service | mysql57 | restarted
+  service:
     name: mysql57
     daemon_reload: true
     state: restarted
   become: true
 
-- name: systemd | mysql80 | started
-  systemd:
+- name: service | mysql80 | started
+  service:
     name: mysql80
     daemon_reload: true
     state: started
   become: true
 
-- name: systemd | mysql80 | stopped
-  systemd:
+- name: service | mysql80 | stopped
+  service:
     name: mysql80
     daemon_reload: true
     state: stopped
   become: true
 
-- name: systemd | mysql80 | restarted
-  systemd:
+- name: service | mysql80 | restarted
+  service:
     name: mysql80
     daemon_reload: true
     state: restarted

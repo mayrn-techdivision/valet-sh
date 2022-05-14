@@ -17,7 +17,7 @@
 
 - block:
     - name: "workflows » neos » services » elasticsearch | ensure elasticsearch{{ valet_sh_project_vars.services.elasticsearch.version }} is started"
-      systemd:
+      service:
         name: "elasticsearch{{ valet_sh_project_vars.services.elasticsearch.version }}"
         state: started
       become: true

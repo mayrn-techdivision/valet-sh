@@ -15,170 +15,170 @@
 ##
 ---
 
-- name: systemd | elasticsearch1 | started
-  systemd:
+- name: service | elasticsearch1 | started
+  service:
     daemon_reload: yes
     name: elasticsearch1
     state: started
   become: true
 
-- name: systemd | elasticsearch1 | stopped
-  systemd:
+- name: service | elasticsearch1 | stopped
+  service:
     daemon_reload: yes
     name: elasticsearch1
     state: stopped
   become: true
 
-- name: systemd | elasticsearch1 | restarted
-  systemd:
+- name: service | elasticsearch1 | restarted
+  service:
     daemon_reload: yes
     name: elasticsearch1
     state: restarted
   become: true
 
-- name: systemd | elasticsearch1 | reloaded
-  systemd:
+- name: service | elasticsearch1 | reloaded
+  service:
     daemon_reload: yes
     name: elasticsearch1
     state: restarted
   become: true
 
-- name: systemd | elasticsearch2 | started
-  systemd:
+- name: service | elasticsearch2 | started
+  service:
     daemon_reload: yes
     name: elasticsearch2
     state: started
   become: true
 
-- name: systemd | elasticsearch2 | stopped
-  systemd:
+- name: service | elasticsearch2 | stopped
+  service:
     daemon_reload: yes
     name: elasticsearch2
     state: stopped
   become: true
 
-- name: systemd | elasticsearch2 | restarted
-  systemd:
+- name: service | elasticsearch2 | restarted
+  service:
     daemon_reload: yes
     name: elasticsearch2
     state: restarted
   become: true
 
-- name: systemd | elasticsearch2 | reloaded
-  systemd:
+- name: service | elasticsearch2 | reloaded
+  service:
     daemon_reload: yes
     name: elasticsearch2
     state: restarted
   become: true
 
-- name: systemd | elasticsearch5 | started
-  systemd:
+- name: service | elasticsearch5 | started
+  service:
     daemon_reload: yes
     name: elasticsearch5
     state: started
   become: true
 
-- name: systemd | elasticsearch5 | stopped
-  systemd:
+- name: service | elasticsearch5 | stopped
+  service:
     daemon_reload: yes
     name: elasticsearch5
     state: stopped
   become: true
 
-- name: systemd | elasticsearch5 | restarted
-  systemd:
+- name: service | elasticsearch5 | restarted
+  service:
     daemon_reload: yes
     name: elasticsearch5
     state: restarted
   become: true
 
-- name: systemd | elasticsearch5 | reloaded
-  systemd:
+- name: service | elasticsearch5 | reloaded
+  service:
     daemon_reload: yes
     name: elasticsearch5
     state: restarted
   become: true
 
 
-- name: systemd | elasticsearch6 | started
-  systemd:
+- name: service | elasticsearch6 | started
+  service:
     daemon_reload: yes
     name: elasticsearch6
     state: started
   become: true
 
-- name: systemd | elasticsearch6 | stopped
-  systemd:
+- name: service | elasticsearch6 | stopped
+  service:
     daemon_reload: yes
     name: elasticsearch6
     state: stopped
   become: true
 
-- name: systemd | elasticsearch6 | restarted
-  systemd:
+- name: service | elasticsearch6 | restarted
+  service:
     daemon_reload: yes
     name: elasticsearch6
     state: restarted
   become: true
 
-- name: systemd | elasticsearch6 | reloaded
-  systemd:
+- name: service | elasticsearch6 | reloaded
+  service:
     daemon_reload: yes
     name: elasticsearch6
     state: restarted
   become: true
 
-- name: systemd | elasticsearch7 | started
-  systemd:
+- name: service | elasticsearch7 | started
+  service:
     daemon_reload: yes
     name: elasticsearch7
     state: started
   become: true
 
-- name: systemd | elasticsearch7 | stopped
-  systemd:
+- name: service | elasticsearch7 | stopped
+  service:
     daemon_reload: yes
     name: elasticsearch7
     state: stopped
   become: true
 
-- name: systemd | elasticsearch7 | restarted
-  systemd:
+- name: service | elasticsearch7 | restarted
+  service:
     daemon_reload: yes
     name: elasticsearch7
     state: restarted
   become: true
 
-- name: systemd | elasticsearch7 | reloaded
-  systemd:
+- name: service | elasticsearch7 | reloaded
+  service:
     daemon_reload: yes
     name: elasticsearch7
     state: restarted
   become: true
 
-- name: systemd | elasticsearch8 | started
-  systemd:
+- name: service | elasticsearch8 | started
+  service:
     daemon_reload: yes
     name: elasticsearch8
     state: started
   become: true
 
-- name: systemd | elasticsearch8 | stopped
-  systemd:
+- name: service | elasticsearch8 | stopped
+  service:
     daemon_reload: yes
     name: elasticsearch8
     state: stopped
   become: true
 
-- name: systemd | elasticsearch8 | restarted
-  systemd:
+- name: service | elasticsearch8 | restarted
+  service:
     daemon_reload: yes
     name: elasticsearch8
     state: restarted
   become: true
 
-- name: systemd | elasticsearch8 | reloaded
-  systemd:
+- name: service | elasticsearch8 | reloaded
+  service:
     daemon_reload: yes
     name: elasticsearch8
     state: restarted

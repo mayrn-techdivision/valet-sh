@@ -15,29 +15,29 @@
 ##
 ---
 
-- name: systemd | network-manager | started
-  systemd:
+- name: service | network-manager | started
+  service:
     daemon_reload: yes
     name: network-manager
     state: started
   become: true
 
-- name: systemd | network-manager | stopped
-  systemd:
+- name: service | network-manager | stopped
+  service:
     daemon_reload: yes
     name: network-manager
     state: stopped
   become: true
 
-- name: systemd | network-manager | reload
-  systemd:
+- name: service | network-manager | reload
+  service:
     daemon_reload: yes
     name: network-manager
     state: reloaded
   become: true
 
-- name: systemd | network-manager | restarted
-  systemd:
+- name: service | network-manager | restarted
+  service:
     daemon_reload: yes
     name: network-manager
     state: restarted

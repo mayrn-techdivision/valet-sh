@@ -67,7 +67,7 @@
     group: "{{ mysql_community_server.default_group }}"
     mode: '0644'
   become: true
-  notify: "systemd | {{ current_mysql_key }} | restarted"
+  notify: "service | {{ current_mysql_key }} | restarted"
 
 - name: "provide mysql.cnf configuration file"
   template:
@@ -95,17 +95,17 @@
     group: "{{ mysql_community_server.default_group }}"
     mode: '0644'
   become: true
-  notify: "systemd | {{ current_mysql_key }} | restarted"
+  notify: "service | {{ current_mysql_key }} | restarted"
 
-- name: "provide {{ current_mysql_key }} systemd unit file"
+- name: "provide {{ current_mysql_key }} service unit file"
   template:
-    src: "systemd/{{ current_mysql_key }}.service.j2"
-    dest: "/etc/systemd/system/{{ current_mysql_key }}.service"
+    src: "service/{{ current_mysql_key }}.service.j2"
+    dest: "/etc/service/system/{{ current_mysql_key }}.service"
     owner: root
     group: root
     mode: '0644'
   become: true
-  notify: "systemd | {{ current_mysql_key }} | restarted"
+  notify: "service | {{ current_mysql_key }} | restarted"
 
 - name: "provide {{ current_mysql_key }} mysql client"
   template:
@@ -163,7 +163,7 @@
 
 - block:
     - name: "ensure '{{ current_mysql_key }}' is stopped"
-      systemd:
+      service:
         name: "{{ current_mysql_key }}"
         state: stopped
       become: true
@@ -202,7 +202,7 @@
         state: absent
 
     - name: "ensure {{ current_mysql_key }} enabled"
-      systemd:
+      service:
         name: "{{ current_mysql_key }}"
         enabled: yes
         daemon_reload: yes
@@ -236,7 +236,7 @@
       become: true
 
     - name: ensure mysql 8.0 is restarted
-      systemd:
+      service:
         name: mysql80
         daemon_reload: true
         state: restarted

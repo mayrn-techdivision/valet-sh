@@ -17,7 +17,7 @@
 
 - block:
     - name: "workflows » magento2 » services » rabbitmq | ensure rabbitmq is started"
-      systemd:
+      service:
         name: rabbitmq-server
         state: restarted
       become: true

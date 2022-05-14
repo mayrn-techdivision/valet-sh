@@ -22,7 +22,7 @@
         valet_sh_service_mysql_current_name: "mysql{{ valet_sh_project_vars.services.mysql.version | replace('.','') }}"
 
     - name: "workflows » magento2 » services » mysql | ensure mysql{{ valet_sh_project_vars.services.mysql.version }} is started"
-      systemd:
+      service:
         name: "{{ valet_sh_service_mysql_current_name }}"
         state: started
       become: true
@@ -44,7 +44,7 @@
         valet_sh_service_mariadb_current_name: "mariadb{{ valet_sh_project_vars.services.mariadb.version | replace('.','') }}"
 
     - name: "workflows » magento2 » services » mariadb | ensure mariadb{{ valet_sh_project_vars.services.mariadb.version }} is started"
-      systemd:
+      service:
         name: "{{ valet_sh_service_mariadb_current_name }}"
         state: started
       become: true

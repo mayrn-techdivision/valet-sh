@@ -16,7 +16,7 @@
 ---
 
 - name: ensure mysql process is stopped and disabled
-  systemd:
+  service:
     name: mysql
     state: stopped
     enabled: no

@@ -63,14 +63,14 @@
     src: "config/{{ current_elasticsearch_key }}.yml.j2"
     dest: "{{ current_elasticsearch_base_path }}/config/elasticsearch.yml"
     mode: '0644'
-  notify: "systemd | elasticsearch8 | restarted"
+  notify: "service | elasticsearch8 | restarted"
 
-- name: "provide {{ current_elasticsearch_key }} systemd unit file"
+- name: "provide {{ current_elasticsearch_key }} service unit file"
   template:
-    src: "systemd/{{ current_elasticsearch_key }}.service.j2"
-    dest: "/etc/systemd/system/{{ current_elasticsearch_key }}.service"
+    src: "service/{{ current_elasticsearch_key }}.service.j2"
+    dest: "/etc/service/system/{{ current_elasticsearch_key }}.service"
     owner: root
     group: root
     mode: '0644'
   become: true
-  notify: "systemd | elasticsearch8 | restarted"
+  notify: "service | elasticsearch8 | restarted"

@@ -15,29 +15,29 @@
 ##
 ---
 
-- name: systemd | nginx | started
-  systemd:
+- name: service | nginx | started
+  service:
     daemon_reload: yes
     name: nginx
     state: started
   become: true
 
-- name: systemd | nginx | stopped
-  systemd:
+- name: service | nginx | stopped
+  service:
     daemon_reload: yes
     name: nginx
     state: stopped
   become: true
 
-- name: systemd | nginx | restarted
-  systemd:
+- name: service | nginx | restarted
+  service:
     daemon_reload: yes
     name: nginx
     state: restarted
   become: true
 
-- name: systemd | nginx | reloaded
-  systemd:
+- name: service | nginx | reloaded
+  service:
     daemon_reload: yes
     name: nginx
     state: reloaded

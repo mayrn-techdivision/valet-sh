@@ -15,48 +15,48 @@
 ##
 ---
 
-- name: systemd | daemon-reload
-  systemd:
+- name: service | daemon-reload
+  service:
     daemon_reload: true
   become: true
 
-- name: systemd | mariadb104 | started
-  systemd:
+- name: service | mariadb104 | started
+  service:
     name: mariadb104
     daemon_reload: true
     state: started
   become: true
 
-- name: systemd | mariadb104 | stopped
-  systemd:
+- name: service | mariadb104 | stopped
+  service:
     name: mariadb104
     daemon_reload: true
     state: stopped
   become: true
 
-- name: systemd | mariadb104 | restarted
-  systemd:
+- name: service | mariadb104 | restarted
+  service:
     name: mariadb104
     daemon_reload: true
     state: restarted
   become: true
 
-- name: systemd | mariadb105 | started
-  systemd:
+- name: service | mariadb105 | started
+  service:
     name: mariadb105
     daemon_reload: true
     state: started
   become: true
 
-- name: systemd | mariadb105 | stopped
-  systemd:
+- name: service | mariadb105 | stopped
+  service:
     name: mariadb105
     daemon_reload: true
     state: stopped
   become: true
 
-- name: systemd | mariadb105 | restarted
-  systemd:
+- name: service | mariadb105 | restarted
+  service:
     name: mariadb105
     daemon_reload: true
     state: restarted

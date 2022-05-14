@@ -17,7 +17,7 @@
 
 - block:
     - name: "workflows » neos » services » php | ensure php{{ valet_sh_project_vars.services.php.version }} is started"
-      systemd:
+      service:
         name: "php{{ valet_sh_project_vars.services.php.version }}-fpm"
         state: started
       become: true

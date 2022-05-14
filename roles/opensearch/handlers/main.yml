@@ -15,29 +15,29 @@
 ##
 ---
 
-- name: systemd | opensearch1 | started
-  systemd:
+- name: service | opensearch1 | started
+  service:
     daemon_reload: yes
     name: opensearch1
     state: started
   become: true
 
-- name: systemd | opensearch1 | stopped
-  systemd:
+- name: service | opensearch1 | stopped
+  service:
     daemon_reload: yes
     name: opensearch1
     state: stopped
   become: true
 
-- name: systemd | opensearch1 | restarted
-  systemd:
+- name: service | opensearch1 | restarted
+  service:
     daemon_reload: yes
     name: opensearch1
     state: restarted
   become: true
 
-- name: systemd | opensearch1 | reloaded
-  systemd:
+- name: service | opensearch1 | reloaded
+  service:
     daemon_reload: yes
     name: opensearch1
     state: restarted

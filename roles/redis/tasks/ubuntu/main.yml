@@ -26,7 +26,7 @@
       - redis-tools
 
 - name: ensure redis-server is running and enabled
-  systemd:
+  service:
     name: redis-server
     state: started
     enabled: yes
